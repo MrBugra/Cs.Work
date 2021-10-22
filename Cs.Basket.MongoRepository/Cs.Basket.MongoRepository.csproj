@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cs.Basket.Core\Cs.Basket.Core.csproj" />
+    <ProjectReference Include="..\Cs.Basket.Model\Cs.Basket.Model.csproj" />
+  </ItemGroup>
+
+</Project>

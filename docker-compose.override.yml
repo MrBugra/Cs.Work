@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  basketdb:
+    container_name: basketdb
+    restart: always
+    volumes:
+      - ./mongo-init/:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - "27017:27017"
+
+  basket.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "Mongo:ConnectionString=mongodb://basketdb:27017/Basket"
+    depends_on:
+      - basketdb
+    ports:
+      - "8000:80"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
